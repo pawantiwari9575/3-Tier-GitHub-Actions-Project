@@ -30,18 +30,15 @@ jobs:
         run: |
           cd api
           find . -name "*.js" -exec node --check {} +
-jobs:
-  scan:
-    name: gitleaks
-    runs-on: agent-1
-    
-    steps:
-      - name: GitLeaks Setup
-        uses:  gitleaks/gitleaks-action@v2
 
-      - name: Gitleak Scan
-        run: |
-          gitleaks detect --source ./client --exit-code 1
-          gitleaks detect --source ./api --exit-code 1
-        
+Gitleak-scan:
+  name: gitleaks
+  runs-on: agent-1
+  steps:
+    - name: GitLeaks Setup
+      uses: gitleaks/gitleaks-action@v2
+    - name: Gitleak Scan
+      run: |
+        gitleaks detect --source ./client --exit-code 1
+        gitleaks detect --source ./api --exit-code 1
         
