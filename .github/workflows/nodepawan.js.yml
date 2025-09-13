@@ -32,9 +32,11 @@ jobs:
           find . -name "*.js" -exec node --check {} +
 
   Gitleak-scan:
-    name: gitleaks
     runs-on: agent-1
+    needs: compile
     steps:
+      - name: checkout code
+        uses: actions/checkout@v4
       - name: GitLeaks Setup
         uses: gitleaks/gitleaks-action@v2
       - name: Gitleak Scan
