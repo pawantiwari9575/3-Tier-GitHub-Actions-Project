@@ -15,6 +15,7 @@ jobs:
     steps:
       - name: checkout code
         uses: actions/checkout@v4
+        
       - name: setup node.js
         uses: actions/setup-node@v4
         with:
@@ -29,6 +30,10 @@ jobs:
         run: |
           cd api
           find . -name "*.js" -exec node --check {} +
+jobs:
+  scan:
+    name: gitleaks
+    runs-on: agent-1
 
       - name: GitLeaks Setup
         uses:  gitleaks/gitleaks-action@v2
