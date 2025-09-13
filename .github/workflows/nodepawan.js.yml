@@ -34,7 +34,8 @@ jobs:
   scan:
     name: gitleaks
     runs-on: agent-1
-
+    
+    steps:
       - name: GitLeaks Setup
         uses:  gitleaks/gitleaks-action@v2
 
