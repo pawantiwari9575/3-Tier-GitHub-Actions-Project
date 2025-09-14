@@ -47,7 +47,7 @@ jobs:
   trivy_fs_sane:
     runs-on: agent-1
     steps:
-      - name: Checkout code
+      - name: Checkout codee
         uses: actions/checkout@v4
       - name: Run Trivy vulnerability scanner
         uses: aquasecurity/trivy-action@0.28.0
