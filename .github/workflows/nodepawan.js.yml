@@ -46,6 +46,7 @@ jobs:
   
   trivy_fs_sane:
     runs-on: agent-1
+    needs: Gitleak-scan
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
